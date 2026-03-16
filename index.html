@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StarUp — Репутационный маркетинг и брендинг</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;900&display=swap');
+        
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+        
+        .hero-title {
+            font-family: 'Playfair Display', sans-serif;
+        }
+
+        .nav-link {
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: #fcd34d;
+            transform: translateY(-2px);
+        }
+
+        .service-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-12px) scale(1.03);
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4);
+        }
+
+        .price-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .price-card:hover {
+            transform: translateY(-15px);
+            border-color: #fcd34d;
+        }
+
+        .glow-yellow {
+            box-shadow: 0 0 30px -5px #fcd34d,
+                        0 0 60px -10px #fcd34d;
+        }
+
+        .section-header {
+            position: relative;
+        }
+        
+        .section-header:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(to right, #fcd34d, #f59e0b);
+            border-radius: 9999px;
+        }
+    </style>
+</head>
+<body class="bg-zinc-950 text-zinc-200 overflow-x-hidden">
+
+    <!-- НАВИГАЦИЯ -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-zinc-950/80 backdrop-blur-lg border-b border-zinc-800">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 bg-yellow-400 rounded-2xl flex items-center justify-center text-zinc-950 font-bold text-2xl">S</div>
+                <span class="text-3xl font-bold tracking-tighter hero-title">StarUp</span>
+            </div>
+
+            <div class="hidden md:flex items-center gap-9 text-sm font-medium">
+                <a href="#tarify" onclick="smoothScrollTo('tarify')" class="nav-link">Тарифы отзывов</a>
+                <a href="#uslugi" onclick="smoothScrollTo('uslugi')" class="nav-link">Услуги брендинга</a>
+                <a href="#how" onclick="smoothScrollTo('how')" class="nav-link">Как мы работаем</a>
+                <a href="#about" onclick="smoothScrollTo('about')" class="nav-link">О компании</a>
+                <a href="#faq" onclick="smoothScrollTo('faq')" class="nav-link">FAQ</a>
+                <a href="#contacts" onclick="smoothScrollTo('contacts')" class="nav-link">Контакты</a>
+            </div>
+
+            <a href="#contacts" onclick="smoothScrollTo('contacts')"
+               class="glow-yellow bg-yellow-400 hover:bg-yellow-300 transition-all text-zinc-950 font-semibold px-8 py-3.5 rounded-2xl text-sm flex items-center gap-2 shadow-xl">
+                <i class="fas fa-rocket"></i>
+                ЗАКАЗАТЬ
+            </a>
+
+            <button onclick="toggleMobileMenu()" class="md:hidden text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <div id="mobileMenu" class="hidden md:hidden bg-zinc-900 border-t border-zinc-800 py-6">
+            <div class="flex flex-col gap-6 px-6 text-lg">
+                <a href="#tarify" onclick="toggleMobileMenu();smoothScrollTo('tarify')" class="nav-link">Тарифы отзывов</a>
+                <a href="#uslugi" onclick="toggleMobileMenu();smoothScrollTo('uslugi')" class="nav-link">Услуги брендинга</a>
+                <a href="#how" onclick="toggleMobileMenu();smoothScrollTo('how')" class="nav-link">Как мы работаем</a>
+                <a href="#about" onclick="toggleMobileMenu();smoothScrollTo('about')" class="nav-link">О компании</a>
+                <a href="#faq" onclick="toggleMobileMenu();smoothScrollTo('faq')" class="nav-link">FAQ</a>
+                <a href="#contacts" onclick="toggleMobileMenu();smoothScrollTo('contacts')" class="nav-link">Контакты</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="min-h-screen pt-24 pb-20 flex items-center bg-gradient-to-br from-zinc-950 via-zinc-900 to-black">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <div class="inline-flex items-center gap-3 bg-zinc-900 border border-yellow-400/30 rounded-full px-6 py-2 mb-8">
+                <div class="w-3 h-3 bg-yellow-400 rounded-full animate-pulse"></div>
+                <span class="text-yellow-400 text-sm font-medium tracking-widest">С 2023 ГОДА</span>
+            </div>
+            
+            <h1 class="hero-title text-6xl md:text-7xl font-black leading-tight text-white mb-6">
+                StarUp — <span class="italic">Управление репутацией</span><br>и брендинг
+            </h1>
+            
+            <p class="max-w-2xl mx-auto text-xl text-zinc-400 leading-relaxed">
+                Формируем доверие клиентов через отзывы и создаём запоминающийся бренд,<br>
+                который продаёт сам.
+            </p>
+
+            <div class="flex flex-wrap justify-center gap-4 mt-12">
+                <a href="#uslugi" onclick="smoothScrollTo('uslugi')" 
+                   class="glow-yellow bg-yellow-400 hover:bg-yellow-300 text-zinc-950 font-semibold px-10 py-5 rounded-3xl text-lg flex items-center gap-3 transition-all">
+                    <i class="fas fa-star"></i>
+                    Заказать брендинг
+                </a>
+                <a href="#tarify" onclick="smoothScrollTo('tarify')"
+                   class="border border-zinc-700 hover:border-zinc-500 font-medium px-10 py-5 rounded-3xl text-lg transition-all">
+                    Тарифы на отзывы
+                </a>
+            </div>
+
+            <div class="mt-20 flex justify-center gap-12 text-sm opacity-75 flex-wrap">
+                <div class="flex items-center gap-2"><i class="fas fa-check text-emerald-400"></i><span>2ГИС</span></div>
+                <div class="flex items-center gap-2"><i class="fas fa-check text-emerald-400"></i><span>Яндекс</span></div>
+                <div class="flex items-center gap-2"><i class="fas fa-check text-emerald-400"></i><span>Google</span></div>
+                <div class="flex items-center gap-2"><i class="fas fa-check text-emerald-400"></i><span>Instagram</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- УСЛУГИ БРЕНДИНГА -->
+    <section id="uslugi" class="py-24 bg-zinc-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="inline-block px-5 py-2 bg-yellow-400/10 text-yellow-400 text-sm font-semibold rounded-full">БРЕНДИНГ</span>
+                <h2 class="section-header text-5xl font-bold text-white mt-4">Услуги по созданию и обновлению бренда</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Мини -->
+                <div class="service-card bg-zinc-950 border border-zinc-800 rounded-3xl p-10 flex flex-col">
+                    <div class="text-yellow-400 text-6xl mb-6">⭐</div>
+                    <h3 class="text-2xl font-bold mb-3">Мини — логотип</h3>
+                    <p class="text-zinc-400 flex-grow mb-6">
+                        Простой, стильный и запоминающийся логотип за короткий срок
+                    </p>
+                    <div class="text-3xl font-black text-yellow-400 mb-6">от 14 500 ₸</div>
+                    <a href="#contacts" onclick="orderSelected('Мини — логотип')" 
+                       class="mt-auto bg-yellow-500/20 hover:bg-yellow-500/40 text-yellow-300 font-semibold py-4 rounded-2xl text-center transition-all">
+                        Заказать
+                    </a>
+                </div>
+
+                <!-- Бизнес -->
+                <div class="service-card bg-zinc-950 border border-zinc-800 rounded-3xl p-10 flex flex-col">
+                    <div class="text-yellow-400 text-6xl mb-6">⭐</div>
+                    <h3 class="text-2xl font-bold mb-3">Бизнес — логотип + фирменный стиль</h3>
+                    <p class="text-zinc-400 flex-grow mb-6">
+                        Логотип, цветовая палитра, шрифты, паттерны, основные носители
+                    </p>
+                    <div class="text-3xl font-black text-yellow-400 mb-6">от 24 500 ₸</div>
+                    <a href="#contacts" onclick="orderSelected('Бизнес — логотип + фирменный стиль')" 
+                       class="mt-auto bg-yellow-500/20 hover:bg-yellow-500/40 text-yellow-300 font-semibold py-4 rounded-2xl text-center transition-all">
+                        Заказать
+                    </a>
+                </div>
+
+                <!-- Визитка -->
+                <div class="service-card bg-zinc-950 border border-zinc-800 rounded-3xl p-10 flex flex-col">
+                    <div class="text-yellow-400 text-6xl mb-6">💼</div>
+                    <h3 class="text-2xl font-bold mb-3">Визитка (двусторонняя)</h3>
+                    <p class="text-zinc-400 flex-grow mb-6">
+                        Современный дизайн визитки с двух сторон
+                    </p>
+                    <div class="text-3xl font-black text-yellow-400 mb-6">от 17 300 ₸</div>
+                    <a href="#contacts" onclick="orderSelected('Визитка двусторонняя')" 
+                       class="mt-auto bg-yellow-500/20 hover:bg-yellow-500/40 text-yellow-300 font-semibold py-4 rounded-2xl text-center transition-all">
+                        Заказать
+                    </a>
+                </div>
+
+                <!-- Премиум -->
+                <div class="service-card bg-zinc-950 border border-zinc-800 rounded-3xl p-10 flex flex-col">
+                    <div class="text-yellow-400 text-6xl mb-6">⭐</div>
+                    <h3 class="text-2xl font-bold mb-3">Премиум — полный брендбук</h3>
+                    <p class="text-zinc-400 flex-grow mb-6">
+                        Полный брендбук: логотип, стиль, правила использования, носители
+                    </p>
+                    <div class="text-3xl font-black text-yellow-400 mb-6">от 59 900 ₸</div>
+                    <a href="#contacts" onclick="orderSelected('Премиум — полный брендбук')" 
+                       class="mt-auto bg-yellow-500/20 hover:bg-yellow-500/40 text-yellow-300 font-semibold py-4 rounded-2xl text-center transition-all">
+                        Заказать
+                    </a>
+                </div>
+
+                <!-- Редизайн -->
+                <div class="service-card bg-zinc-950 border border-orange-800/40 rounded-3xl p-10 flex flex-col lg:col-span-3 md:col-span-2">
+                    <div class="text-orange-400 text-6xl mb-6">🔄</div>
+                    <h3 class="text-2xl font-bold mb-3">Редизайн — обновим ваш текущий бренд</h3>
+                    <p class="text-zinc-400 flex-grow mb-6">
+                        Освежим устаревший стиль, сделаем современнее и сильнее
+                    </p>
+                    <div class="text-3xl font-black text-orange-400 mb-6">цена договорная</div>
+                    <a href="#contacts" onclick="orderSelected('Редизайн текущего бренда')" 
+                       class="mt-auto bg-orange-500/20 hover:bg-orange-500/40 text-orange-300 font-semibold py-4 rounded-2xl text-center transition-all">
+                        Обсудить
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ТАРИФЫ ОТЗЫВОВ (оставлено без изменений, только заголовок чуть уточнён) -->
+    <section id="tarify" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="inline-block px-5 py-2 bg-yellow-400/10 text-yellow-400 text-sm font-semibold rounded-full">ОТЗЫВЫ</span>
+                <h2 class="section-header text-5xl font-bold text-white mt-4">Тарифы на управление репутацией</h2>
+                <p class="text-zinc-400 mt-4 max-w-md mx-auto">Реальные отзывы от проверенных пользователей</p>
+            </div>
+
+            <!-- ПАКЕТЫ ОТЗЫВОВ -->
+            <div class="mb-16">
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="text-5xl">💬</div>
+                    <div>
+                        <h3 class="text-3xl font-bold">Пакеты отзывов</h3>
+                        <p class="text-yellow-400 font-medium">Премиум-формат</p>
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="price-card bg-zinc-900 border-2 border-transparent rounded-3xl p-8 hover:border-yellow-400">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-white">Мини</div>
+                            <div class="text-5xl font-black text-yellow-400 mt-2">10</div>
+                            <div class="text-zinc-400 text-sm">отзывов</div>
+                            <div class="text-4xl font-bold mt-8">9 900 ₸</div>
+                            <a href="#contacts" onclick="smoothScrollTo('contacts');orderSelected('Мини — 10 отзывов')" 
+                               class="mt-8 block w-full bg-yellow-400 hover:bg-yellow-300 text-zinc-950 font-semibold py-4 rounded-2xl transition-all">
+                                Выбрать
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="price-card bg-zinc-900 border-2 border-transparent rounded-3xl p-8 hover:border-yellow-400 relative">
+                        <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-emerald-400 text-emerald-950 text-xs font-bold px-6 py-1 rounded-full">ПОПУЛЯРНЫЙ</div>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-white">Оптимум</div>
+                            <div class="text-5xl font-black text-yellow-400 mt-2">30</div>
+                            <div class="text-zinc-400 text-sm">отзывов</div>
+                            <div class="text-4xl font-bold mt-8">27 000 ₸</div>
+                            <a href="#contacts" onclick="smoothScrollTo('contacts');orderSelected('Оптимум — 30 отзывов')" 
+                               class="mt-8 block w-full bg-yellow-400 hover:bg-yellow-300 text-zinc-950 font-semibold py-4 rounded-2xl transition-all">
+                                Выбрать
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="price-card bg-zinc-900 border-2 border-transparent rounded-3xl p-8 hover:border-yellow-400">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-white">Усиление</div>
+                            <div class="text-5xl font-black text-yellow-400 mt-2">50</div>
+                            <div class="text-zinc-400 text-sm">отзывов</div>
+                            <div class="text-4xl font-bold mt-8">44 900 ₸</div>
+                            <a href="#contacts" onclick="smoothScrollTo('contacts');orderSelected('Усиление — 50 отзывов')" 
+                               class="mt-8 block w-full bg-yellow-400 hover:bg-yellow-300 text-zinc-950 font-semibold py-4 rounded-2xl transition-all">
+                                Выбрать
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="price-card bg-zinc-900 border-2 border-transparent rounded-3xl p-8 hover:border-yellow-400">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-white">Максимум</div>
+                            <div class="text-5xl font-black text-yellow-400 mt-2">100</div>
+                            <div class="text-zinc-400 text-sm">отзывов</div>
+                            <div class="text-4xl font-bold mt-8">84 900 ₸</div>
+                            <a href="#contacts" onclick="smoothScrollTo('contacts');orderSelected('Максимум — 100 отзывов')" 
+                               class="mt-8 block w-full bg-yellow-400 hover:bg-yellow-300 text-zinc-950 font-semibold py-4 rounded-2xl transition-all">
+                                Выбрать
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- УДАЛЕНИЕ ОТЗЫВОВ -->
+            <div>
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="text-5xl">❌</div>
+                    <div>
+                        <h3 class="text-3xl font-bold">Удаление негативных отзывов</h3>
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+                    <div class="price-card bg-zinc-900 border border-zinc-700 rounded-3xl p-8 hover:border-red-400">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <div class="text-xl font-semibold">До 5 отзывов</div>
+                                <div class="text-4xl font-bold text-white mt-6">24 900 ₸</div>
+                            </div>
+                            <a href="#contacts" onclick="smoothScrollTo('contacts');orderSelected('Удаление до 5 негативных отзывов')" 
+                               class="bg-red-500/10 hover:bg-red-500/20 text-red-400 px-6 py-3 rounded-2xl text-sm font-medium transition-all">
+                                Заказать
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="price-card bg-zinc-900 border border-zinc-700 rounded-3xl p-8 hover:border-red-400">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <div class="text-xl font-semibold">До 20 отзывов</div>
+                                <div class="text-4xl font-bold text-white mt-6">54 900 ₸</div>
+                            </div>
+                            <a href="#contacts" onclick="smoothScrollTo('contacts');orderSelected('Удаление до 20 негативных отзывов')" 
+                               class="bg-red-500/10 hover:bg-red-500/20 text-red-400 px-6 py-3 rounded-2xl text-sm font-medium transition-all">
+                                Заказать
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- КАК МЫ РАБОТАЕМ -->
+    <section id="how" class="py-24 bg-zinc-900">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="inline-block px-5 py-2 bg-yellow-400/10 text-yellow-400 text-sm font-semibold rounded-full">ПРОЦЕСС</span>
+                <h2 class="section-header text-5xl font-bold text-white mt-4">Как мы работаем</h2>
+            </div>
+
+            <div class="space-y-8">
+                <div class="flex gap-8 items-start">
+                    <div class="w-12 h-12 bg-yellow-400 text-zinc-950 rounded-2xl flex items-center justify-center font-bold text-2xl flex-shrink-0">1</div>
+                    <div>
+                        <div class="font-semibold text-xl">Анализ</div>
+                        <div class="text-zinc-400">Изучаем текущую репутацию и задачи по брендингу / отзывам</div>
+                    </div>
+                </div>
+                <div class="flex gap-8 items-start">
+                    <div class="w-12 h-12 bg-yellow-400 text-zinc-950 rounded-2xl flex items-center justify-center font-bold text-2xl flex-shrink-0">2</div>
+                    <div>
+                        <div class="font-semibold text-xl">Стратегия</div>
+                        <div class="text-zinc-400">Составляем план работ и согласовываем с вами</div>
+                    </div>
+                </div>
+                <div class="flex gap-8 items-start">
+                    <div class="w-12 h-12 bg-yellow-400 text-zinc-950 rounded-2xl flex items-center justify-center font-bold text-2xl flex-shrink-0">3</div>
+                    <div>
+                        <div class="font-semibold text-xl">Реализация</div>
+                        <div class="text-zinc-400">Ежедневная / поэтапная работа по проекту</div>
+                    </div>
+                </div>
+                <div class="flex gap-8 items-start">
+                    <div class="w-12 h-12 bg-yellow-400 text-zinc-950 rounded-2xl flex items-center justify-center font-bold text-2xl flex-shrink-0">4</div>
+                    <div>
+                        <div class="font-semibold text-xl">Контроль</div>
+                        <div class="text-zinc-400">Показываем промежуточные результаты, вносим правки</div>
+                    </div>
+                </div>
+                <div class="flex gap-8 items-start">
+                    <div class="w-12 h-12 bg-yellow-400 text-zinc-950 rounded-2xl flex items-center justify-center font-bold text-2xl flex-shrink-0">5</div>
+                    <div>
+                        <div class="font-semibold text-xl">Сдача</div>
+                        <div class="text-zinc-400">Финальная сдача + отчёты / исходники</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- О КОМПАНИИ -->
+    <section id="about" class="py-24">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid md:grid-cols-12 gap-16 items-center">
+                <div class="md:col-span-5">
+                    <div class="bg-gradient-to-br from-yellow-400/10 to-transparent border border-yellow-400/20 rounded-3xl p-12">
+                        <div class="text-7xl mb-8">⭐</div>
+                        <h2 class="text-5xl font-bold leading-none hero-title">StarUp</h2>
+                        <div class="text-yellow-400 text-2xl mt-2">с 2023 года</div>
+                    </div>
+                </div>
+                
+                <div class="md:col-span-7">
+                    <p class="text-lg leading-relaxed text-zinc-300">
+                        StarUp — команда, которая помогает бизнесу расти через сильную репутацию и узнаваемый бренд.
+                    </p>
+                    <p class="text-lg leading-relaxed text-zinc-300 mt-6">
+                        Работаем с отзывами на 2ГИС, Яндекс, Google и создаём логотипы, фирменный стиль и брендбуки.
+                        Сотни проектов в Казахстане и СНГ.
+                    </p>
+                    
+                    <div class="mt-12 grid grid-cols-2 gap-x-12 gap-y-8 text-sm">
+                        <div class="flex gap-4"><i class="fas fa-check text-yellow-400 mt-1"></i><div>Индивидуальный подход</div></div>
+                        <div class="flex gap-4"><i class="fas fa-check text-yellow-400 mt-1"></i><div>Прозрачные цены</div></div>
+                        <div class="flex gap-4"><i class="fas fa-check text-yellow-400 mt-1"></i><div>Реальные результаты</div></div>
+                        <div class="flex gap-4"><i class="fas fa-check text-yellow-400 mt-1"></i><div>Постоянная связь</div></div>
+                        <div class="flex gap-4"><i class="fas fa-check text-yellow-400 mt-1"></i><div>Конфиденциальность</div></div>
+                        <div class="flex gap-4"><i class="fas fa-check text-yellow-400 mt-1"></i><div>Полная отчётность</div></div>
+                    </div>
+
+                    <div class="mt-16 border-l-4 border-yellow-400 pl-8">
+                        <p class="italic text-zinc-400">
+                            «Сильная репутация + сильный бренд = стабильный рост бизнеса»
+                        </p>
+                        <div class="mt-4 text-yellow-400 font-medium">— Команда StarUp</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ (оставлен почти без изменений) -->
+    <section id="faq" class="py-24 bg-zinc-900">
+        <div class="max-w-3xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="inline-block px-5 py-2 bg-yellow-400/10 text-yellow-400 text-sm font-semibold rounded-full">ВОПРОСЫ</span>
+                <h2 class="section-header text-5xl font-bold text-white mt-4">Часто задаваемые вопросы</h2>
+            </div>
+
+            <div class="space-y-4">
+                <details class="group bg-zinc-950 border border-zinc-800 rounded-3xl p-8 open:bg-zinc-900">
+                    <summary class="flex justify-between items-center cursor-pointer text-lg font-medium">
+                        <span>Сколько времени занимает создание логотипа / бренда?</span>
+                        <span class="text-yellow-400 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <div class="mt-6 text-zinc-400 leading-relaxed">
+                        Мини-логотип — от 3–7 дней.<br>Фирменный стиль — 10–20 дней.<br>Полный брендбук — от 3–6 недель.
+                    </div>
+                </details>
+
+                <details class="group bg-zinc-950 border border-zinc-800 rounded-3xl p-8 open:bg-zinc-900">
+                    <summary class="flex justify-between items-center cursor-pointer text-lg font-medium">
+                        <span>Сколько времени занимает запуск проекта по отзывам?</span>
+                        <span class="text-yellow-400 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <div class="mt-6 text-zinc-400 leading-relaxed">
+                        От 3 до 7 дней на анализ и старт. Далее — ежедневная публикация.
+                    </div>
+                </details>
+
+                <details class="group bg-zinc-950 border border-zinc-800 rounded-3xl p-8 open:bg-zinc-900">
+                    <summary class="flex justify-between items-center cursor-pointer text-lg font-medium">
+                        <span>Можно ли удалить все негативные отзывы?</span>
+                        <span class="text-yellow-400 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <div class="mt-6 text-zinc-400 leading-relaxed">
+                        Только те, что нарушают правила площадки. Честные нейтрализуем объёмом положительных.
+                    </div>
+                </details>
+
+                <details class="group bg-zinc-950 border border-zinc-800 rounded-3xl p-8 open:bg-zinc-900">
+                    <summary class="flex justify-between items-center cursor-pointer text-lg font-medium">
+                        <span>Работаете по всему Казахстану?</span>
+                        <span class="text-yellow-400 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <div class="mt-6 text-zinc-400 leading-relaxed">
+                        Да, вся страна + страны СНГ. Основные города: Алматы, Астана, Шымкент, Павлодар.
+                    </div>
+                </details>
+
+                <details class="group bg-zinc-950 border border-zinc-800 rounded-3xl p-8 open:bg-zinc-900">
+                    <summary class="flex justify-between items-center cursor-pointer text-lg font-medium">
+                        <span>Как происходит оплата?</span>
+                        <span class="text-yellow-400 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <div class="mt-6 text-zinc-400 leading-relaxed">
+                        Брендинг: 50% предоплата, 50% после сдачи.<br>Отзывы: 50% предоплата.<br>Удаление: 100% предоплата.
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- КОНТАКТЫ -->
+    <section id="contacts" class="py-24 border-t border-zinc-800">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold">Свяжитесь с нами</h2>
+                <p class="text-zinc-400 mt-4">Ответим в течение 10–20 минут</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <a href="https://wa.me/77073646692" target="_blank"
+                   class="group bg-zinc-900 hover:bg-emerald-900/30 border border-emerald-900/50 rounded-3xl p-10 flex flex-col items-center text-center transition-all">
+                    <i class="fab fa-whatsapp text-7xl text-emerald-400 mb-6"></i>
+                    <div class="font-semibold text-2xl">WhatsApp</div>
+                    <div class="text-emerald-400 text-xl mt-2">+7 707 364 66 92</div>
+                    <div class="text-sm text-zinc-500 mt-auto pt-8 group-hover:text-emerald-300">Написать →</div>
+                </a>
+
+                <a href="https://t.me/StarUpp_bot" target="_blank"
+                   class="group bg-zinc-900 hover:bg-blue-900/30 border border-blue-900/50 rounded-3xl p-10 flex flex-col items-center text-center transition-all">
+                    <i class="fab fa-telegram text-7xl text-blue-400 mb-6"></i>
+                    <div class="font-semibold text-2xl">Telegram</div>
+                    <div class="text-blue-400 text-xl mt-2">@StarUpp_bot</div>
+                    <div class="text-sm text-zinc-500 mt-auto pt-8 group-hover:text-blue-300">Написать боту →</div>
+                </a>
+
+                <a href="https://www.instagram.com/starup.kz" target="_blank"
+                   class="group bg-zinc-900 hover:bg-pink-900/30 border border-pink-900/50 rounded-3xl p-10 flex flex-col items-center text-center transition-all">
+                    <i class="fab fa-instagram text-7xl text-pink-400 mb-6"></i>
+                    <div class="font-semibold text-2xl">Instagram</div>
+                    <div class="text-pink-400 text-xl mt-2">@starup.kz</div>
+                    <div class="text-sm text-zinc-500 mt-auto pt-8 group-hover:text-pink-300">Перейти →</div>
+                </a>
+            </div>
+
+            <div class="text-center mt-20 text-zinc-500 text-sm">
+                © 2026 StarUp. Все права защищены.<br>
+                Репутация и брендинг в Казахстане
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function smoothScrollTo(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        function orderSelected(packageName) {
+            const message = `Здравствуйте! Интересует услуга: ${packageName}. Можно подробнее?`;
+            const whatsappUrl = `https://wa.me/77073646692?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobileMenu').classList.add('hidden');
+            });
+        });
+
+        console.log('%cStarUp — сайт обновлён!', 'color:#fcd34d; font-size:14px; font-weight:bold');
+    </script>
+</body>
+</html>
